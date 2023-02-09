@@ -1,0 +1,46 @@
+cabal-version:  3.0
+name:           many-args
+version:        0.1.0.0
+build-type:     Simple
+
+common common
+
+    build-depends:
+        base
+           >= 4.17 && < 4.19
+      , rounded-hw
+          ^>= 0.3
+      , template-haskell
+           >= 2.18 && < 2.20
+
+    ghc-options:
+        -O2
+        -fexpose-all-unfoldings
+        -fspecialise-aggressively
+        -fmax-worker-args=200
+        -Wall
+        -Wcompat
+        -fwarn-missing-local-signatures
+        -fwarn-incomplete-patterns
+        -fwarn-incomplete-uni-patterns
+        -fwarn-missing-deriving-strategies
+        -fno-warn-unticked-promoted-constructors
+
+library
+
+    import:
+        common
+
+    default-language:
+        GHC2021
+
+    hs-source-dirs:
+        src
+
+    exposed-modules:
+        Definitions
+      , Implementation
+      , Representable
+
+    other-modules:
+        THUtils

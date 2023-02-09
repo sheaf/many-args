@@ -1,0 +1,11 @@
+packages: .
+
+constraints:
+  rounded-hw -pure-hs -c99 -avx512 +ghc-prim -x87-long-double
+
+-- rounded-hw
+source-repository-package
+  type: git
+  location: https://github.com/minoki/haskell-floating-point
+  subdir: rounded-hw
+  tag: c141bc8435c556e94d51254479a8213698679261
